@@ -82,7 +82,11 @@
 %global build_cloog 0
 %endif
 
+%if 0%{?rhel} == 5 || 0%{?rhel} == 6
+%global build_libstdcxx_docs 0
+%else
 %global build_libstdcxx_docs 1
+%endif
 # If you don't have already a usable gcc-java and libgcj for your arch,
 # do on some arch which has it rpmbuild -bc --with java_tar gcc.spec
 # which creates libjava-classes-%{version}-%{release}.tar.bz2
