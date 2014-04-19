@@ -37,7 +37,7 @@
 
 %global build_fortran 1
 
-%if 0%{?rhel} >= 7 || 0%{?amzn}
+%if 0%{?rhel} || 0%{?amzn}
 %global build_java 0
 %else
 %global build_java 1
@@ -108,7 +108,7 @@
 %endif
 
 # Amazon overrides
-%if 0%{?amzn:1}
+%if 0%{?amzn:1} || 0%{?rhel:1}
 # we have the "real" golang
 %global build_go 0
 # no support for objc by unpopular non-demand
